@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	
+	
+	<definition name="nutritionist/register" extends="master.page">	
+		<put-attribute name="title" value="Registrarse como nutricionista" />
+		<put-attribute name="body" value="/views/nutritionist/register.jsp" />
+	</definition>
+	
+	<definition name="nutritionist/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar Informacion Personal" />
+		<put-attribute name="body" value="/views/nutritionist/edit.jsp" />
+	</definition>
+	
+	<definition name="nutritionist/display" extends="master.page">	
+		<put-attribute name="title" value="Ver perfil" />
+		<put-attribute name="body" value="/views/nutritionist/display.jsp" />
+	</definition>
+	
+</tiles-definitions>

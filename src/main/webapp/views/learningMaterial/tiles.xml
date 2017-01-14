@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+	
+	<definition name="learningMaterial/browse" extends="master.page">	
+		<put-attribute name="title" value="Browse Learning Materials" />
+		<put-attribute name="body" value="/views/learningMaterial/browse.jsp" />
+	</definition>
+	<definition name="learningMaterial/editVideo" extends="master.page">	
+		<put-attribute name="title" value="Edit video" />
+		<put-attribute name="body" value="/views/learningMaterial/editVideo.jsp" />
+	</definition>
+	<definition name="learningMaterial/editText" extends="master.page">	
+		<put-attribute name="title" value="Edit text" />
+		<put-attribute name="body" value="/views/learningMaterial/editText.jsp" />
+	</definition>
+	<definition name="learningMaterial/editPresentation" extends="master.page">	
+		<put-attribute name="title" value="Edit presentation" />
+		<put-attribute name="body" value="/views/learningMaterial/editPresentation.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	<definition name="recipe/browse" extends="master.page">	
+		<put-attribute name="title" value="Catalogo de recetas" />
+		<put-attribute name="body" value="/views/recipe/browse.jsp" />
+	</definition>
+	
+	<definition name="recipe/display" extends="master.page">	
+		<put-attribute name="title" value="Receta" />
+		<put-attribute name="body" value="/views/recipe/display.jsp" />
+	</definition>
+	
+	<definition name="recipe/listing" extends="master.page">
+		<put-attribute name="title" value="Mis Recetas" />
+		<put-attribute name="body" value="/views/recipe/listing.jsp"/>
+	</definition>
+	
+	<definition name="recipe/classify" extends="master.page">
+		<put-attribute name="title" value="Clasificar receta" />
+		<put-attribute name="body" value="/views/recipe/classify.jsp"/>
+	</definition>
+	
+	<definition name="recipe/create" extends="master.page">
+		<put-attribute name="title" value="Crear receta" />
+		<put-attribute name="body" value="/views/recipe/edit.jsp"/>
+	</definition>
+	
+	<definition name="recipe/list" extends="master.page">
+		<put-attribute name="title" value="Recetas" />
+		<put-attribute name="body" value="/views/recipe/list.jsp"/>
+	</definition>
+	
+	<definition name="contest/listrecipes" extends="master.page">
+		<put-attribute name="title" value="Lista de recetas de un concurso" />
+		<put-attribute name="body" value="/views/recipe/browse.jsp"/>
+	</definition>
+	
+	<definition name="contest/listwinners" extends="master.page">
+		<put-attribute name="title" value="Lista de gandores de un concurso" />
+		<put-attribute name="body" value="/views/recipe/browse.jsp"/>
+	</definition>
+	
+</tiles-definitions>
