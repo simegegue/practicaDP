@@ -1,0 +1,47 @@
+-select min(u.menus.size) from User u;
+
+-select max(u.menus.size) from User u;
+
+-select avg(u.menus.size) from User u;
+
+-select min(u.recipes.size),max(u.recipes.size),avg(u.recipes.size) from User u;
+
+-select u from User u where u.recipes.size=(select max(u.recipes.size) from User u);
+
+-select min(c.qualifies.size),max(c.qualifies.size),avg(c.qualifies.size) from Contest c;
+
+-select c from Contest c where c.qualifies.size=(select max(c.qualifies.size) from Contest c);
+
+-select avg(r.steps.size),stddev(r.steps.size) from Recipe r;
+
+-select avg(r.quantities.size),stddev(r.quantities.size) from Recipe r;
+
+-select u from User u order by u.followers.size DESC;
+
+-select u from User u order by ((select avg(r.relationLikes.size) from Recipe r where r.user=u)+ (select avg(r.relationDislikes.size) from Recipe r where r.user=u)) DESC;
+
+-select min(s.campaigns.size), max(s.campaigns.size), avg(s.campaigns.size) from Sponsor s;
+
+-select min(s.campaigns.size),max(s.campaigns.size),avg(s.campaigns.size) from Sponsor s join s.campaigns c where current_date between c.startDate and c.endDate;
+
+-select s.companyName from Sponsor s order by s.campaigns.size DESC;
+
+-select s.companyName from Sponsor s order by s.monthlyBills.size DESC;
+
+-select 1.0*(select count(mb1)from MonthlyBill mb1 where mb1.payMoment!=null)/(select count(mb2) from MonthlyBill mb2) from MonthlyBill mb where mb.payMoment!=null;
+
+-select stddev(mb) from MonthlyBill mb where mb.payMoment!=null;
+
+-select stddev(mb) from MonthlyBill mb where mb.payMoment=null;
+
+-select 1.0*(select count(mb1)from MonthlyBill mb1 where mb1.payMoment!=null)/(select count(mb2) from MonthlyBill mb2) from MonthlyBill mb where 
+
+-select s from Sponsor s where s.campaigns.size is NULL or MONTH(current_date)-MONTH(s.lastTimeManages)>3;
+
+-select 1.0*(select count(m) from MonthlyBill m where payMoment!=null)/count(m), 1.0*(select count(m) from MonthlyBill m where payMoment=null)/count(m),(select stddev(mb) from MonthlyBill mb where mb.payMoment!=null),(select stddev(mb) from MonthlyBill mb where mb.payMoment=null) from MonthlyBill m;
+
+-select s from Sponsor s where s.campaigns.size is NULL or DATE(current_date)-DATE(s.lastTimeManages)>3;
+
+-select s.companyName from Sponsor s where(( select sum(m.cost) from MonthlyBill m where m.sponsor.companyName=s.companyName) < (select avg(m1.cost) from MonthlyBill m1));
+
+-select s.companyName from Sponsor s where ((select sum(m.cost) from MonthlyBill m where m.sponsor=s) >= 0.9*(select max(m1.cost) from MonthlyBill m1));

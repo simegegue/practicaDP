@@ -26,7 +26,16 @@ public class User extends SocialActor{
 
 	private Collection<Recipe> recipes;	
 	private Collection<Comment> comments;
-
+	private Collection<Menu> menus;
+	
+	@Valid
+	@OneToMany(mappedBy="user")
+	public Collection<Menu> getMenus() {
+		return menus;
+	}
+	public void setMenus(Collection<Menu> menus) {
+		this.menus = menus;
+	}
 	@Valid
 	@OneToMany(mappedBy="user")
 	public Collection<Recipe> getRecipes() {
