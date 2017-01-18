@@ -87,6 +87,16 @@
 			</li>
 			<li><a href="cook/edit.do"><spring:message code="master.page.cook.edit" /></a></li>			
 		</security:authorize>
+		
+		<security:authorize access="hasRole('CRITIC')">
+			<li><a class="fNiv"><spring:message	code="master.page.critic" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="review/list.do"><spring:message code="master.page.critic.review.list" /></a></li>				
+				</ul>
+			</li>
+			<li><a href="cook/edit.do"><spring:message code="master.page.cook.edit" /></a></li>			
+		</security:authorize>
 				
 		<security:authorize access="hasRole('USER')">
 			<li><a class="fNiv"><spring:message	code="master.page.user.edit" /></a>

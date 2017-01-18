@@ -130,6 +130,12 @@
 		<bean class="converters.UserAccountToStringConverter" />
 		<bean class="converters.StringToUserAccountConverter" />
 		
+		<bean class="converters.CriticToStringConverter" />
+		<bean class="converters.StringToCriticConverter" />
+		
+		<bean class="converters.ReviewToStringConverter" />
+		<bean class="converters.StringToReviewConverter" />
+		
 	</util:list>
 	
 </beans>

@@ -46,6 +46,7 @@
 		<security:intercept-url pattern="/administrator/spamWord/**" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/administrator/contest/**" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/administrator/category/**" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/review/**" access="hasRole('CRITIC')" />
 	
 		<security:intercept-url pattern="/cook/masterClass/**" access="hasRole('COOK')"/>
 		<security:intercept-url pattern="/cook/edit.do" access="hasRole('COOK')"/>

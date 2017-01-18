@@ -1,0 +1,1 @@
+select 1.0*(select count(r) from Review r where valoration like 'positive')/count(rT) from Review rT;
