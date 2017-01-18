@@ -40,13 +40,14 @@ public class Authority implements GrantedAuthority {
 	public static final String NUTRITIONIST = "NUTRITIONIST";
 	public static final String SPONSOR = "SPONSOR";
 	public static final String COOK = "COOK";
+	public static final String CRITIC= "CRITIC";
 
 	// Attributes -------------------------------------------------------------
 
 	private String authority;
 
 	@NotBlank
-	@Pattern(regexp = "^" + ADMIN + "|" + USER + "|" + "NUTRITIONIST" + "|" + "SPONSOR" + "|" + "COOK" + "$")
+	@Pattern(regexp = "^" + ADMIN + "|" + USER + "|" + "NUTRITIONIST" + "|" + "SPONSOR" + "|" + "COOK" + "|" + "CRITIC" + "$")
 	@Override
 	public String getAuthority() {
 		return authority;
@@ -80,6 +81,10 @@ public class Authority implements GrantedAuthority {
 		
 		authority = new Authority();
 		authority.setAuthority(COOK);
+		result.add(authority);
+		
+		authority = new Authority();
+		authority.setAuthority(CRITIC);
 		result.add(authority);
 
 		return result;

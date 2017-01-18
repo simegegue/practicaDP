@@ -120,7 +120,16 @@ public class Recipe extends DomainEntity{
 	private Collection<Quantity> quantities;
 	private Collection<RelationLike> relationLikes;
 	private Collection<RelationDislike> relationDislikes;
+	private Collection<Review> reviews;
 	
+	@Valid
+	@OneToMany(mappedBy="recipe")
+	public Collection<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(Collection<Review> reviews) {
+		this.reviews = reviews;
+	}
 	@OneToMany(mappedBy="recipe")
 	public Collection<RelationLike> getRelationLikes() {
 		return relationLikes;

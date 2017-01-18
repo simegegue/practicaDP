@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2016 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	 <!-- Fee -->
+	 
+	 <bean id="fee1" class="domain.Fee">
+	 	<property name="value" value="0.25" />
+	 </bean>
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount16" class="security.UserAccount">
+		<property name="username" value="admin3" />
+		<property name="password" value="32cacb2f994f6b42183a1300d9a3e8d6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Other domain beans come here -->
+
+	<!-- Administrator -->	
+
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Antonio"/>
+		<property name="surname" value="Bellido"/>
+		<property name="email" value="belli@gmail.com"/>
+		<property name="phone"><null/></property>
+		<property name="postalAddress"><null/></property>
+		<property name="userAccount" ref="userAccount1"/>
+		<property name="sendedMessages">
+			<list>
+			</list>
+		</property>
+		<property name="receivedMessages">
+			<list>	
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+			</list>
+		</property>
+		<property name="categories">
+			<list>
+			</list>
+		</property>
+		<property name="spamWords">
+			<list>
+				<ref bean="spamWord1"/>
+				<ref bean="spamWord2"/>
+				<ref bean="spamWord3"/>
+				<ref bean="spamWord4"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="administrator3" class="domain.Administrator">
+		<property name="name" value="System"/>
+		<property name="surname" value="System"/>
+		<property name="email" value="system@gmail.com"/>
+		<property name="phone" value="+354(001)92E2"/>
+		<property name="postalAddress"><null/></property>
+		<property name="userAccount" ref="userAccount16"/>
+		<property name="sendedMessages">
+			<list>
+			</list>
+		</property>
+		<property name="receivedMessages">
+			<list>
+			</list>
+		</property>
+		<property name="socialIdentities">
+			<list>
+			</list>
+		</property>
+		<property name="categories">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- SpamWord -->
+	
+	<bean id="spamWord1" class="domain.SpamWord">
+		<property name="name" value="viagra"/>
+		<property name="administrator" ref="administrator1" />
+	</bean>
+	
+	<bean id="spamWord2" class="domain.SpamWord">
+		<property name="name" value="cialis"/>
+		<property name="administrator" ref="administrator1" />
+	</bean>
+	
+	<bean id="spamWord3" class="domain.SpamWord">
+		<property name="name" value="sex"/>
+		<property name="administrator" ref="administrator1" />
+	</bean>
+	
+	<bean id="spamWord4" class="domain.SpamWord">
+		<property name="name" value="love"/>
+		<property name="administrator" ref="administrator1" />
+	</bean>
+   
+    <!-- Folders -->
+    
+	<bean id="folder1" class="domain.Folder">
+		<property name="name" value="Inbox"/>
+		<property name="predefined" value="True"/>
+		<property name="actor" ref="administrator1"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="folder2" class="domain.Folder">
+		<property name="name" value="Outbox"/>
+		<property name="predefined" value="True"/>
+		<property name="actor" ref="administrator1"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="folder3" class="domain.Folder">
+		<property name="name" value="Trashbox"/>
+		<property name="predefined" value="True"/>
+		<property name="actor" ref="administrator1"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="folder4" class="domain.Folder">
+		<property name="name" value="Spambox"/>
+		<property name="predefined" value="True"/>
+		<property name="actor" ref="administrator1"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+	</bean>
+	 
+	 <bean id="folder61" class="domain.Folder">
+	  <property name="name" value="Inbox"/>
+	  <property name="predefined" value="True"/>
+	  <property name="actor" ref="administrator3"/>
+	  <property name="messages">
+		   <list>
+		   </list>
+	  </property>
+	 </bean>
+	
+	<bean id="folder62" class="domain.Folder">
+	  <property name="name" value="Outbox"/>
+	  <property name="predefined" value="True"/>
+	  <property name="actor" ref="administrator3"/>
+	  <property name="messages">
+		   <list>
+		   </list>
+	  </property>
+	 </bean>
+	
+	<bean id="folder63" class="domain.Folder">
+	  <property name="name" value="Trashbox"/>
+	  <property name="predefined" value="True"/>
+	  <property name="actor" ref="administrator3"/>
+	  <property name="messages">
+		   <list>
+		   </list>
+	  </property>
+	 </bean>
+	
+	<bean id="folder64" class="domain.Folder">
+	  <property name="name" value="Spambox"/>
+	  <property name="predefined" value="True"/>
+	  <property name="actor" ref="administrator3"/>
+	  <property name="messages">
+		   <list>
+		   </list>
+	  </property>
+	 </bean>
+	
+	<!-- Unit -->
+	
+	<bean id="unit1" class="domain.Unit">
+		<property name="name" value="grams" />
+	</bean>
+	
+	<bean id="unit2" class="domain.Unit">
+	  <property name="name" value="kilograms" />
+	 </bean>
+	
+	<bean id="unit3" class="domain.Unit">
+	  <property name="name" value="ounces" />
+	 </bean>
+	
+	<bean id="unit4" class="domain.Unit">
+	  <property name="name" value="pounds" />
+	 </bean>
+	
+	<bean id="unit5" class="domain.Unit">
+	  <property name="name" value="millilitres" />
+	 </bean>
+	
+	<bean id="unit6" class="domain.Unit">
+	  <property name="name" value="litres" />
+	 </bean>
+	
+	<bean id="unit7" class="domain.Unit">
+	  <property name="name" value="spoons" />
+	 </bean>
+	
+	<bean id="unit8" class="domain.Unit">
+	  <property name="name" value="cups" />
+	 </bean>
+	
+	<bean id="unit9" class="domain.Unit">
+	  <property name="name" value="pieces" />
+	 </bean>
+
+</beans>
